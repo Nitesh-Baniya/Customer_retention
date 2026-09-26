@@ -1,0 +1,12 @@
+{
+  "best_run_id": "0059d8ee624f4c5494af3cdd4fb4cdb6",
+  "best_run_name": "gradient_boosting_optimized",
+  "best_roc_auc": 0.8391878180472224,
+  "best_f1_score": 0.5755813953488372,
+  "registered_model": "customer-retention-predictor",
+  "model_version": 2,
+  "registry_stages": [
+    "Staging",
+    "Production"
+  ]
+}
