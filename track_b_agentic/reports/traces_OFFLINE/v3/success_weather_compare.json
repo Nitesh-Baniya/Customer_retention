@@ -1,0 +1,118 @@
+{
+  "case_id": "weather_compare",
+  "query": "Compare the weather in New York, London, and Tokyo",
+  "prompt_version": "v3",
+  "answer": "New York: 18.4\u00b0C, Partly cloudy. London: 14.2\u00b0C, Slight rain. Tokyo: 22.1\u00b0C, Mainly clear. Search result: Current weather conditions and forecasts for locations worldwide.",
+  "termination_reason": "success_after_verification",
+  "error": null,
+  "llm_iterations": 4,
+  "verification_rounds": 1,
+  "steps": [
+    {
+      "step": 1,
+      "iteration": 1,
+      "phase": "tool_call",
+      "tool": "get_current_weather",
+      "args": {
+        "location": "New York"
+      },
+      "result": "{\"location\": \"New York\", \"condition\": \"Partly cloudy\", \"temperature\": 18.4, \"temperature_unit\": \"\\u00b0C\", \"relative_humidity_percent\": 60, \"wind_speed\": 11.0, \"wind_speed_unit\": \"km/h\"}",
+      "success": true,
+      "reasoning": "I need `get_current_weather` for this question.",
+      "latency_s": 0.002
+    },
+    {
+      "step": 2,
+      "iteration": 2,
+      "phase": "tool_call",
+      "tool": "get_current_weather",
+      "args": {
+        "location": "London"
+      },
+      "result": "{\"location\": \"London\", \"condition\": \"Slight rain\", \"temperature\": 14.2, \"temperature_unit\": \"\\u00b0C\", \"relative_humidity_percent\": 60, \"wind_speed\": 11.0, \"wind_speed_unit\": \"km/h\"}",
+      "success": true,
+      "reasoning": "I need `get_current_weather` for this question.",
+      "latency_s": 0.025
+    },
+    {
+      "step": 3,
+      "iteration": 3,
+      "phase": "tool_call",
+      "tool": "get_current_weather",
+      "args": {
+        "location": "Tokyo"
+      },
+      "result": "{\"location\": \"Tokyo\", \"condition\": \"Mainly clear\", \"temperature\": 22.1, \"temperature_unit\": \"\\u00b0C\", \"relative_humidity_percent\": 60, \"wind_speed\": 11.0, \"wind_speed_unit\": \"km/h\"}",
+      "success": true,
+      "reasoning": "I need `get_current_weather` for this question.",
+      "latency_s": 0.002
+    },
+    {
+      "step": 4,
+      "iteration": 4,
+      "phase": "draft_answer",
+      "tool": null,
+      "args": null,
+      "result": "New York: 18.4\u00b0C, Partly cloudy. London: 14.2\u00b0C, Slight rain. Tokyo: 22.1\u00b0C, Mainly clear.",
+      "success": null,
+      "reasoning": "Model returned no tool call -> loop proposes to stop.",
+      "latency_s": 0.001
+    },
+    {
+      "step": 5,
+      "iteration": 4,
+      "phase": "verification_decision",
+      "tool": null,
+      "args": {
+        "needs_verification": true,
+        "confidence": 0.6,
+        "suggested_queries": [
+          "Compare the weather in New York, London, and Tokyo"
+        ]
+      },
+      "result": null,
+      "success": null,
+      "reasoning": "Claim is time-varying; cross-check with a second source.",
+      "latency_s": 0.0
+    },
+    {
+      "step": 6,
+      "iteration": 4,
+      "phase": "verification_search",
+      "tool": "web_search",
+      "args": {
+        "query": "Compare the weather in New York, London, and Tokyo"
+      },
+      "result": "{\"query\": \"Compare the weather in New York, London, and Tokyo\", \"results\": [{\"title\": \"Weather Information Service\", \"url\": \"https://example.com/weather\", \"snippet\": \"Current weather conditions and forecasts for locations worldwide.\"}], \"total_results\": 1}",
+      "success": true,
+      "reasoning": "verification: Claim is time-varying; cross-check with a second source.",
+      "latency_s": 0.0
+    },
+    {
+      "step": 7,
+      "iteration": 4,
+      "phase": "final_answer",
+      "tool": null,
+      "args": null,
+      "result": "New York: 18.4\u00b0C, Partly cloudy. London: 14.2\u00b0C, Slight rain. Tokyo: 22.1\u00b0C, Mainly clear. Search result: Current weather conditions and forecasts for locations worldwide.",
+      "success": null,
+      "reasoning": "confidence=medium",
+      "latency_s": 0.0
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 6862,
+    "completion_tokens": 166,
+    "total_tokens": 7028,
+    "llm_calls": 6
+  },
+  "latency_s": 0.031,
+  "model": "scripted-offline",
+  "tools_used": [
+    "get_current_weather",
+    "get_current_weather",
+    "get_current_weather",
+    "web_search"
+  ],
+  "verification_performed": true
+}

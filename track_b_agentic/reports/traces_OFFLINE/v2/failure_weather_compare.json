@@ -1,0 +1,74 @@
+{
+  "case_id": "weather_compare",
+  "query": "Compare the weather in New York, London, and Tokyo",
+  "prompt_version": "v2",
+  "answer": "New York: 18.4\u00b0C, Partly cloudy.",
+  "termination_reason": "success_no_verification_needed",
+  "error": null,
+  "llm_iterations": 2,
+  "verification_rounds": 0,
+  "steps": [
+    {
+      "step": 1,
+      "iteration": 1,
+      "phase": "tool_call",
+      "tool": "get_current_weather",
+      "args": {
+        "location": "New York"
+      },
+      "result": "{\"location\": \"New York\", \"condition\": \"Partly cloudy\", \"temperature\": 18.4, \"temperature_unit\": \"\\u00b0C\", \"relative_humidity_percent\": 60, \"wind_speed\": 11.0, \"wind_speed_unit\": \"km/h\"}",
+      "success": true,
+      "reasoning": "I need `get_current_weather` for this question.",
+      "latency_s": 0.004
+    },
+    {
+      "step": 2,
+      "iteration": 2,
+      "phase": "draft_answer",
+      "tool": null,
+      "args": null,
+      "result": "New York: 18.4\u00b0C, Partly cloudy.",
+      "success": null,
+      "reasoning": "Model returned no tool call -> loop proposes to stop.",
+      "latency_s": 0.002
+    },
+    {
+      "step": 3,
+      "iteration": 2,
+      "phase": "verification_decision",
+      "tool": null,
+      "args": {
+        "needs_verification": false,
+        "confidence": 0.6,
+        "suggested_queries": null
+      },
+      "result": null,
+      "success": null,
+      "reasoning": "No draft answer was provided to evaluate.",
+      "latency_s": 0.0
+    },
+    {
+      "step": 4,
+      "iteration": 2,
+      "phase": "final_answer",
+      "tool": null,
+      "args": null,
+      "result": "New York: 18.4\u00b0C, Partly cloudy.",
+      "success": null,
+      "reasoning": "confidence=medium",
+      "latency_s": 0.0
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2777,
+    "completion_tokens": 79,
+    "total_tokens": 2856,
+    "llm_calls": 4
+  },
+  "latency_s": 0.006,
+  "model": "scripted-offline",
+  "tools_used": [
+    "get_current_weather"
+  ],
+  "verification_performed": false
+}

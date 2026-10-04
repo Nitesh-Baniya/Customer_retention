@@ -1,0 +1,4 @@
+version,gate,completion,strict_completion,tool_correct,verif_recall,coverage,error_rate,pct_tests_passed,correctness,completeness,avg_iters,avg_tool_calls,avg_tokens,avg_latency_s,run_id
+v1,FAIL,0.375,0.375,0.75,0.0,0.625,0.0,81.25,0.75,0.875,1.75,0.75,1668.75,0.004,0da8ad6f679a47329838253ca5baf01d
+v2,FAIL,0.375,0.375,1.0,0.0,0.75,0.0,81.25,0.75,0.875,2.0,1.0,2467.375,0.0068,ec496983e6ed49cbb3398d4800af4e7d
+v3,PASS,1.0,1.0,1.0,1.0,1.0,0.0,93.75,0.875,1.0,2.375,2.0,4025.25,0.0109,f8339d9ffa654ba482aec96719ed11a1

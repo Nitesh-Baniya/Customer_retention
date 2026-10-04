@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.env
+mlflow.db
+mlartifacts/
+mlruns/
+airflow/logs/
+airflow/airflow.db
+airflow/airflow.cfg
+airflow/webserver_config.py
+reports/last_nightly_version.txt
+reports/degradation_alert.json
