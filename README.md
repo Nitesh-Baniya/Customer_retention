@@ -4,6 +4,9 @@ A production-grade MLOps pipeline for predicting customer attrition using the IB
 
 **Complete workflow: data processing → model training → MLflow tracking → model registry → FastAPI serving → Evidently monitoring → Airflow-orchestrated retraining**
 
+> **Track B (Agentic AI MLOps)** lives in [`track_b_agentic/`](track_b_agentic/README.md) with its own `pyproject.toml` + `uv.lock`.
+> Everything below is **Track A (Data Science MLOps)**.
+
 ## Technology Stack
 
 | Component | Technology |

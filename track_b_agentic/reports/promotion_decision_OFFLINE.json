@@ -1,0 +1,8 @@
+{
+  "promoted": "v3",
+  "run_id": "f8339d9ffa654ba482aec96719ed11a1",
+  "reason": "passed regression gate; best strict completion / judge pass rate / token cost",
+  "strict_completion": 1.0,
+  "pct_tests_passed": 93.75,
+  "avg_tokens": 4025.25
+}

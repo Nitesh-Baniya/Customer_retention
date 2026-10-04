@@ -1,0 +1,74 @@
+{
+  "case_id": "calc_arith",
+  "query": "Calculate 25 * 17 + 43",
+  "prompt_version": "v2",
+  "answer": "The result of `25 * 17 + 43` is 468.",
+  "termination_reason": "success_no_verification_needed",
+  "error": null,
+  "llm_iterations": 2,
+  "verification_rounds": 0,
+  "steps": [
+    {
+      "step": 1,
+      "iteration": 1,
+      "phase": "tool_call",
+      "tool": "calculator",
+      "args": {
+        "expression": "25 * 17 + 43"
+      },
+      "result": "{\"expression\": \"25 * 17 + 43\", \"result\": 468}",
+      "success": true,
+      "reasoning": "I need `calculator` for this question.",
+      "latency_s": 0.002
+    },
+    {
+      "step": 2,
+      "iteration": 2,
+      "phase": "draft_answer",
+      "tool": null,
+      "args": null,
+      "result": "The result of `25 * 17 + 43` is 468.",
+      "success": null,
+      "reasoning": "Model returned no tool call -> loop proposes to stop.",
+      "latency_s": 0.001
+    },
+    {
+      "step": 3,
+      "iteration": 2,
+      "phase": "verification_decision",
+      "tool": null,
+      "args": {
+        "needs_verification": false,
+        "confidence": 0.6,
+        "suggested_queries": null
+      },
+      "result": null,
+      "success": null,
+      "reasoning": "No draft answer was provided to evaluate.",
+      "latency_s": 0.0
+    },
+    {
+      "step": 4,
+      "iteration": 2,
+      "phase": "final_answer",
+      "tool": null,
+      "args": null,
+      "result": "The result of `25 * 17 + 43` is 468.",
+      "success": null,
+      "reasoning": "confidence=medium",
+      "latency_s": 0.0
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2117,
+    "completion_tokens": 79,
+    "total_tokens": 2196,
+    "llm_calls": 4
+  },
+  "latency_s": 0.003,
+  "model": "scripted-offline",
+  "tools_used": [
+    "calculator"
+  ],
+  "verification_performed": false
+}
